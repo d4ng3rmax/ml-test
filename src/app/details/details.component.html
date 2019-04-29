@@ -1,0 +1,17 @@
+<app-header></app-header>
+
+<section>
+    <div class="container">
+        <div class="row mg-top-20">
+            <div class="col-md-7">
+               <img src="{{ itemsService.result.secure_thumbnail }}" class="pic" />
+            </div>
+            <div class="col">
+                <p></p>
+                <h3>{{ itemsService.result.title }}</h3>
+                <p><strong>{{ itemsService.result.base_price | currentBR }}</strong></p>
+                <button>Comprar</button>
+            </div>
+        </div>
+    </div>
+</section>

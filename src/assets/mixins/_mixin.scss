@@ -1,0 +1,59 @@
+/* Colors */
+
+$color-yellow-ml: #fff059;
+
+/* Mixins */
+
+$default-legacy-ie: 7 8 9 !default;
+
+@mixin legacy-ie($versions: $default-legacy-ie) {
+    $sel: ();
+    @each $v in $versions {
+        $sel: append($sel, unquote('.ie#{$v} &'), comma);
+    }
+
+    #{$sel} {
+        @content;
+    }
+}
+
+@function rems($px) {
+    @return $px / 16px * 1rem;
+}
+
+@mixin cursor-hand() {
+    cursor: pointer;
+    @include legacy-ie(7 8) {
+        cursor: hand;
+    }
+}
+
+@mixin radius($size: 5px) {
+	-moz-border-radius: $size;
+	-webkit-border-radius: $size;
+	border-radius: $size;
+}
+
+@mixin gradient($colorIni, $colorEnd, $percIni: 1%, $percEnd: 100%, $topBottom: top, $leftRight: left, $inverse: null) {
+
+    @if $topBottom == top {
+        $inverse: bottom
+    } @else if $topBottom == bottom {
+        $inverse: top
+    }
+
+    background: $colorIni; /* Old browsers */
+    background: -moz-linear-gradient($topBottom,  $colorIni $percIni, $colorEnd $percEnd); /* FF3.6+ */
+    background: -webkit-gradient(linear, $leftRight $topBottom, $leftRight $inverse, color-stop($percIni,$colorIni), color-stop($percEnd,$colorEnd)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient($topBottom,  $colorIni $percIni,$colorEnd $percEnd); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient($topBottom,  $colorIni $percIni,$colorEnd $percEnd); /* Opera 11.10+ */
+    background: -ms-linear-gradient($topBottom,  $colorIni $percIni,$colorEnd $percEnd); /* IE10+ */
+    background: linear-gradient(to $inverse,  $colorIni $percIni,$colorEnd $percEnd); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$colorIni}', endColorstr='#{$colorEnd}',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin shadow($sets: 0 0 5px rgba(117,127,16,.4)) {
+    -webkit-box-shadow: $sets;
+    -moz-box-shadow: $sets;
+    box-shadow: $sets;
+}

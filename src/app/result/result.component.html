@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<section>
+    <div class="container">
+        <div class="row mg-top-20" *ngFor="let res of searchService.results | limit: 4">
+            <div class="col col-md-2">
+                <a [routerLink]="['/detail', res.id]" class="pic"><img src="{{ res.thumbnail }}" /></a>
+            </div>
+            <div class="col">
+                <p>{{ res.price | currentBR }}</p>
+                <p><a [routerLink]="['/detail', res.id]">{{ res.title }}</a></p>
+            </div>
+            <div class="col-md-2">
+                <p class="align-middle">{{ res.address.city_name }}</p>
+            </div>
+        </div>
+    </div>
+</section>

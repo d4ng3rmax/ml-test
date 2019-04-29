@@ -1,0 +1,28 @@
+<header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-1">
+                <div class="logo">
+                    <a [routerLink]="['/']" title="Home">Logo</a>
+                </div>
+            </div>
+            <div class="col">
+                <form class="search-box">
+                    <input type = "text"
+                        name = "search"
+                        max-length = "120"
+                        autocapitalize = "off"
+                        autocorrect = "off"
+                        spellcheck = "false"
+                        autofocus = ""
+                        placeholder = ""
+                        #searchVal />
+
+                    <button (click)="doSearch( $event, searchVal.value ); false"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</header>

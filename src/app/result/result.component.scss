@@ -1,0 +1,47 @@
+@import "../../assets/mixins/global-imports";
+
+section {
+    padding-top: 60px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 10px;
+}
+
+.pic {
+    display: table-cell;
+    vertical-align: middle;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+}
+
+.mg-top-20 {
+    margin-top: 20px;
+}
+
+.col {
+    p {
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+}
+
+@mixin container--desk() {
+    .container {
+        max-width: 850px;
+    }
+}
+
+/* Tablet */
+@media (min-width:#{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+
+}
+
+/* Desktop */
+@media (min-width: #{$tablet-width}) {
+    @include container--desk();
+}

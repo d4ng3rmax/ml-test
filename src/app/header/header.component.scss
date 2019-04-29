@@ -1,0 +1,70 @@
+@import "../../assets/mixins/global-imports";
+
+header {
+    background-color: $color-yellow-ml;
+    border-bottom: 1px solid #d9d9d9;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .logo {
+        padding: 5px 0;
+
+        a {
+            display: block;
+            background: url(/images/logo.png) no-repeat scroll 0 0 transparent;
+            width: 63px;
+            height: 40px;
+            text-indent: -900em;
+        }
+    }
+
+    form {
+        width: 450px;
+
+        input[type='text'] {
+            padding: 5px 60px 5px 15px;
+            border: 1px solid #ccc;
+            width: 91%;
+            margin-top: 8px;
+            display: inline-block;
+            outline: none;
+
+            &:focus {
+                @include shadow();
+            }
+        }
+
+        button {
+            @include cursor-hand();
+            @include radius(0 3px 3px 0);
+            @include gradient(#fff, #f1f1f1);
+            border-width: 1px 1px 1px 0;
+            border-color: #ccc;
+            border-style: solid;
+            position: relative;
+            display: inline-block;
+            right: 5px;
+            padding: 5px 10px;
+
+            &:hover {
+                @include gradient(#f1f1f1, #fff);
+            }
+        }
+    }
+}
+
+@mixin container--desk() {
+    .container {
+        max-width: 850px;
+    }
+}
+
+/* Desktop */
+@media (min-width: #{$tablet-width}) {
+    @include container--desk();
+}

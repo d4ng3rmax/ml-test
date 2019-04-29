@@ -1,0 +1,40 @@
+@import "../../assets/mixins/global-imports";
+
+section {
+    padding-top: 60px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p {
+    strong {
+        font-size: 18px;
+    }
+}
+
+.container {
+    background-color: #fff;
+    padding: 10px;
+}
+
+.pic {
+    width: 450px;
+}
+
+@mixin container--desk() {
+    .container {
+        max-width: 850px;
+    }
+}
+
+/* Tablet */
+@media (min-width:#{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+
+}
+
+/* Desktop */
+@media (min-width: #{$tablet-width}) {
+    @include container--desk();
+}
